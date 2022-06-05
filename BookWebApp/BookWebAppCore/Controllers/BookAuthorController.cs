@@ -5,9 +5,9 @@ namespace BookWebAppCore.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BookController : ControllerBase
+    public class BookAuthorController : ControllerBase
     {
-        public BookController()
+        public BookAuthorController()
         {
 
         }

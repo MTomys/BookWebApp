@@ -8,7 +8,11 @@ namespace BookWebAppCore.Data
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
+
         }
+
+        public DbSet<Book> Books { get; set; }
+        public DbSet<BookAuthor> BookAuthors { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

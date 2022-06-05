@@ -22,8 +22,15 @@ namespace BookWebAppCore.Data.Configurations
             builder.Property(book => book.PageCount)
                 .HasColumnType("bigint");
 
+            builder.HasOne(book => book.BookAuthor)
+                .WithMany(ba => ba.Books)
+                .HasForeignKey(book => book.BookAuthorId);
+
+            builder.Navigation(book => book.BookAuthor)
+                .UsePropertyAccessMode(PropertyAccessMode.Property);
+
             builder.HasIndex(book => book.IsbnNumber)
-                .IsUnique(); 
+                .IsUnique();
         }
     }
 }
