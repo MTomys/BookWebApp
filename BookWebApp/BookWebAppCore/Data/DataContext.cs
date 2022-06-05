@@ -1,6 +1,7 @@
 ﻿using BookWebAppCore.Data.Configurations;
 using BookWebAppCore.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace BookWebAppCore.Data
 {
@@ -16,8 +17,8 @@ namespace BookWebAppCore.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            new BookEntityTypeConfiguration().Configure(modelBuilder.Entity<Book>());
-            new BookAuthorEntityTypeConfiguration().Configure(modelBuilder.Entity<BookAuthor>());
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
 }

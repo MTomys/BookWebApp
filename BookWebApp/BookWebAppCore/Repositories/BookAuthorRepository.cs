@@ -17,5 +17,20 @@ namespace BookWebAppCore.Repositories
         {
             return _dataContext.BookAuthors.OrderBy(ba => ba.BookAuthorId).ToList();
         }
+
+        public BookAuthor GetBookAuthorByFullName(string fullName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public BookAuthor GetBookAuthorById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ICollection<BookAuthor> GetBookAuthorByNationality(string nationality)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

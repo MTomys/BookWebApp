@@ -4,7 +4,7 @@
 
 namespace BookWebAppCore.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class DelegatedServicesMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

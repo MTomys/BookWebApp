@@ -20,5 +20,20 @@ namespace BookWebAppCore.Repositories
                 .OrderBy(book => book.BookId)
                 .ToList();
         }
+
+        public Book GetBookById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Book GetBookByIsbnNumber(string isbnNumber)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ICollection<Book> GetBooksByGenre(string bookGenre)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

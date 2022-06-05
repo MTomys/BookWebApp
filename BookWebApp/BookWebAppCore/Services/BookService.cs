@@ -1,6 +1,8 @@
-﻿namespace BookWebAppCore.Services
+﻿using BookWebAppCore.Interfaces;
+
+namespace BookWebAppCore.Services
 {
-    public class BookService
+    public class BookService : IBookService
     {
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using BookWebAppCore.Interfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookWebAppCore.Controllers
@@ -7,9 +8,12 @@ namespace BookWebAppCore.Controllers
     [ApiController]
     public class BookAuthorController : ControllerBase
     {
-        public BookAuthorController()
-        {
 
+        private readonly IBookAuthorService _bookAuthorService;
+
+        public BookAuthorController(IBookAuthorService bookAuthorService)
+        {
+            _bookAuthorService = bookAuthorService;
         }
     }
 }
