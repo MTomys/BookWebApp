@@ -10,6 +10,6 @@
         public int PageCount { get; set; }
 
         public int BookAuthorId { get; set; }
-        public virtual Book BookAuthor { get; set; }
+        public virtual Book? BookAuthor { get; set; }
     }
 }
