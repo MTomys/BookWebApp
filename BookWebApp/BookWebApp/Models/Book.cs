@@ -1,4 +1,4 @@
-﻿namespace BookWebApp.Models
+﻿namespace BookWebAppCore.Models
 {
     public class Book
     {

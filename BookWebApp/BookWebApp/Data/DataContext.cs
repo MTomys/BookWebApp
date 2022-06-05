@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace BookWebApp.Data
+namespace BookWebAppCore.Data
 {
     public class DataContext : DbContext
     {

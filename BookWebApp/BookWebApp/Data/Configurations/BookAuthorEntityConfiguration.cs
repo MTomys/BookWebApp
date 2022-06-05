@@ -1,4 +1,4 @@
-﻿namespace BookWebApp.Data.Configurations
+﻿namespace BookWebAppCore.Data.Configurations
 {
     public class BookAuthorEntityConfiguration
     {

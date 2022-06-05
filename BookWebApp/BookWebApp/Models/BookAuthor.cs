@@ -1,6 +1,6 @@
-﻿namespace BookWebApp.Models
+﻿namespace BookWebAppCore.Models
 {
-    public class Book
+    public class BookAuthor
     {
         public int BookAuthorId { get; set; }
 
