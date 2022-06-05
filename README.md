@@ -1,2 +1,2 @@
 # Description
-Just a simple CRUD application for practice purposes
+Just a simple Book CRUD application for practice purposes
