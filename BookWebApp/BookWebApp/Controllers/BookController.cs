@@ -1,11 +1,11 @@
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BookWebApp.Controllers
+namespace BookWebAppCore.Controllers
 {
+    [Route("api/[controller]")]
     [ApiController]
-    [Route("[controller]")]
     public class BookController : ControllerBase
     {
-    
     }
 }
