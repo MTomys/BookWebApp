@@ -15,22 +15,31 @@ namespace BookWebAppCore.Repositories
 
         public ICollection<BookAuthor> GetAllBookAuthors()
         {
-            return _dataContext.BookAuthors.OrderBy(ba => ba.BookAuthorId).ToList();
+            return _dataContext
+                .BookAuthors
+                .ToList();
         }
 
         public BookAuthor GetBookAuthorByFullName(string fullName)
         {
-            throw new NotImplementedException();
+            return _dataContext
+                .BookAuthors
+                .FirstOrDefault(author => $"{author.FirstName} {author.LastName}".Equals(fullName, StringComparison.Ordinal));
         }
 
         public BookAuthor GetBookAuthorById(int id)
         {
-            throw new NotImplementedException();
+            return _dataContext
+                .BookAuthors
+                .FirstOrDefault(author => author.BookAuthorId == id);
         }
 
         public ICollection<BookAuthor> GetBookAuthorByNationality(string nationality)
         {
-            throw new NotImplementedException();
+            return _dataContext
+                .BookAuthors
+                .Where(author => author.Nationality.Equals(nationality))
+                .ToList();
         }
     }
 }
