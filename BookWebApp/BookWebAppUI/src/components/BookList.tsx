@@ -1,3 +1,3 @@
-const Books = () => {
+const BookList = () => {
   return <div></div>;
 };

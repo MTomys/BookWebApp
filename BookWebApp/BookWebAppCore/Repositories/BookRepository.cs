@@ -23,17 +23,24 @@ namespace BookWebAppCore.Repositories
 
         public Book GetBookById(int id)
         {
-            throw new NotImplementedException();
+            return _dataContext
+                .Books
+                .FirstOrDefault(book => book.BookId == id);
         }
 
         public Book GetBookByIsbnNumber(string isbnNumber)
         {
-            throw new NotImplementedException();
+            return _dataContext
+                .Books
+                .FirstOrDefault(book => book.IsbnNumber.Equals(isbnNumber));
         }
 
         public ICollection<Book> GetBooksByGenre(string bookGenre)
         {
-            throw new NotImplementedException();
+            return _dataContext
+                .Books
+                .Where(book => book.BookGenre.Equals(bookGenre))
+                .ToList();
         }
     }
 }
