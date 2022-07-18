@@ -1,10 +1,12 @@
 import React from 'react';
-import './App.css';
+import './index.css';
+import { BookTable } from './components/BookTable';
+import { AddBookButton } from './components/AddBookButton';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello, test</h1>
+    <div>
+      <BookTable />
     </div>
   );
 }
