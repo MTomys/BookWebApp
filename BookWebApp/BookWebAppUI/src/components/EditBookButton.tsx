@@ -1,3 +1,3 @@
-const EditBookButton = () => {
-  return <div></div>;
+export const EditBookButton = () => {
+  return <button>Edit</button>;
 };

@@ -1,28 +1,36 @@
 import { books } from '../mock-data/index';
 import { AddBookButton } from './AddBookButton';
+import { EditBookButton } from './EditBookButton';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { BookTableItem } from './BookTableItem';
 
 export const BookTable = () => {
+  const [tableElementHovered, setTableElementHovered] = useState(false);
+
   return (
-    <div>
-      <h1 className="text-5xl text-center m-5">Book List</h1>
+    <>
+      <div className="flex justify-center">
+        <div className="flex w-1/2 justify-end">
+          <div className=" mb-2 text-xl">
+            <AddBookButton />
+          </div>
+        </div>
+      </div>
       <div className="flex w-auto justify-center">
         <table className="table-auto w-1/2">
           <thead className="border">
-            <th className="">Book name</th>
+            <th>Book name</th>
             <th>Book author name</th>
             <th>ISBN number</th>
           </thead>
           <tbody>
-            {books.map((book) => (
-              <tr className="group border text-center hover:bg-slate-200 transition cursor-pointer">
-                <td className="">{book.name}</td>
-                <td className="">{book.authorName}</td>
-                <td className="">{book.isbn}</td>
-              </tr>
+            {books.map((b) => (
+              <BookTableItem book={b} />
             ))}
           </tbody>
         </table>
       </div>
-    </div>
+    </>
   );
 };
