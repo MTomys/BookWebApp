@@ -1,4 +1,6 @@
-export const books = [
+import { Book } from '../interfaces/index';
+
+export const mockBooks: Book[] = [
   {
     id: 1,
     name: 'Thus Spoke Zarathustra',

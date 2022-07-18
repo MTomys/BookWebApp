@@ -1,32 +1,42 @@
-import { books } from '../mock-data/index';
+import { mockBooks } from '../mock-data/index';
 import { AddBookButton } from './AddBookButton';
 import { EditBookButton } from './EditBookButton';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { BookTableItem } from './BookTableItem';
+import { Book } from '../interfaces/index';
+import { SelectedRow } from '../interfaces/index';
 
 export const BookTable = () => {
-  const [tableElementHovered, setTableElementHovered] = useState(false);
+  const [selectedRows, setSelectedRows] = useState<SelectedRow[]>();
+  const [books, setBooks] = useState(mockBooks);
+
+  const selectTableRow = () => {};
 
   return (
     <>
-      <div className="flex justify-center">
-        <div className="flex w-1/2 justify-end">
-          <div className=" mb-2 text-xl">
-            <AddBookButton />
-          </div>
+      <div className="flex w-1/2 justify-end mx-auto">
+        <div className=" mb-2 text-xl">
+          <AddBookButton />
         </div>
       </div>
-      <div className="flex w-auto justify-center">
-        <table className="table-auto w-1/2">
-          <thead className="border">
+      <div className="flex w-auto justify-center mx-auto">
+        <table className="table-fixed w-1/2">
+          <thead className="">
             <th>Book name</th>
             <th>Book author name</th>
             <th>ISBN number</th>
           </thead>
           <tbody>
             {books.map((b) => (
-              <BookTableItem book={b} />
+              <BookTableItem
+                book={b}
+                isSelected={
+                  selectedRows?.find((row) => {
+                    return row.id === b.id;
+                  })?.isSelected
+                }
+              />
             ))}
           </tbody>
         </table>
