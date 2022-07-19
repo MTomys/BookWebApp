@@ -11,20 +11,44 @@ interface BookTableFromReactTableProps {
 export const BookTableItem: React.FC<BookTableFromReactTableProps> = ({
   row,
 }) => {
+  const [isItemSelected, setIsItemSelected] = useState(false);
+
   return (
     <tr
-      className="group border text-center select-auto hover:bg-slate-200 transition cursor-pointer"
+      className={`group border text-center select-auto hover:bg-slate-200 transition cursor-pointer ${
+        isItemSelected &&
+        `shadow-sm border-1 border-slate-400 bg-slate-300 hover:bg-slate-300`
+      }`}
       {...row.getRowProps()}
     >
       {row.cells.map((cell) => {
-        return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>;
+        return (
+          <td
+            onClick={() => {
+              setIsItemSelected(!isItemSelected);
+            }}
+            {...cell.getCellProps()}
+          >
+            {cell.render('Cell')}
+          </td>
+        );
       })}
-      <span>
-        <td className="invisible group-hover:visible ">
-          <EditBookButton></EditBookButton>
+      <span className="cursor-default">
+        <td
+          className={`group-hover:visible ${
+            isItemSelected ? `visible` : `invisible`
+          } `}
+        >
+          <EditBookButton isParentSelected={isItemSelected}></EditBookButton>
         </td>
-        <td className="invisible group-hover:visible ">
-          <RemoveBookButton></RemoveBookButton>
+        <td
+          className={`group-hover:visible ${
+            isItemSelected ? `visible` : `invisible`
+          } `}
+        >
+          <RemoveBookButton
+            isParentSelected={isItemSelected}
+          ></RemoveBookButton>
         </td>
       </span>
     </tr>
