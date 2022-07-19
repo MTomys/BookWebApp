@@ -7,6 +7,8 @@ import { BookTableItem } from './BookTableItem';
 import { Book } from '../interfaces/index';
 import { SelectedRow } from '../interfaces/index';
 
+interface BookTableProps {}
+
 export const BookTable = () => {
   const [selectedRows, setSelectedRows] = useState<SelectedRow[]>();
   const [books, setBooks] = useState(mockBooks);
@@ -29,14 +31,7 @@ export const BookTable = () => {
           </thead>
           <tbody>
             {books.map((b) => (
-              <BookTableItem
-                book={b}
-                isSelected={
-                  selectedRows?.find((row) => {
-                    return row.id === b.id;
-                  })?.isSelected
-                }
-              />
+              <BookTableItem book={b} />
             ))}
           </tbody>
         </table>

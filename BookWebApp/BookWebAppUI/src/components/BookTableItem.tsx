@@ -1,12 +1,11 @@
 import { EditBookButton } from './EditBookButton';
 import { RemoveBookButton } from './RemoveBookButton';
 import { Book } from '../interfaces/index';
-
 import { useState } from 'react';
+import { useTable } from 'react-table';
 
 interface BookTableItemProps {
   book: Book;
-  isSelected?: boolean;
 }
 
 export const BookTableItem: React.FC<BookTableItemProps> = ({ book }) => {
