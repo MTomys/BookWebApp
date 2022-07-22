@@ -12,7 +12,10 @@ export const BookTable = () => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(BOOKS_API);
-      setBookData(result.data);
+      const formattedResult = result.data.map((book: Book, index: number) => {
+        return { ...book, id: index + 1 };
+      });
+      setBookData(formattedResult);
     };
     fetchData();
   }, []);
