@@ -1,7 +1,8 @@
 import { BookStateButtons } from './BookStateButtons';
 import { mockBooks } from '../mock-data/index';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Book } from '../interfaces/index';
+import { BOOKS_API } from '../api/routes';
 
 export const BookTable = () => {
   const [selectedItem, setSelectedItem] = useState<Book | null>(null);
@@ -22,13 +23,7 @@ export const BookTable = () => {
   return (
     <>
       <table className="table-fixed w-1/2">
-        <thead>
-          <th>Book Name</th>
-          <th>Book genre</th>
-          <th>Page count</th>
-          <th>Book author name</th>
-          <th>Isbn Number</th>
-        </thead>
+        <thead></thead>
         <tbody>
           {mockBooks.map((book) => (
             <tr

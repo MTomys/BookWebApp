@@ -1,6 +1,7 @@
 ﻿using BookWebAppCore.Data;
 using BookWebAppCore.Interfaces;
 using BookWebAppCore.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookWebAppCore.Repositories
 {
@@ -17,7 +18,7 @@ namespace BookWebAppCore.Repositories
         {
             return _dataContext
                 .Books
-                .OrderBy(book => book.BookId)
+                .Include(book => book.BookAuthor)
                 .ToList();
         }
 
