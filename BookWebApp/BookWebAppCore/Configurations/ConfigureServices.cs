@@ -25,6 +25,8 @@ namespace BookWebAppCore.Configurations
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
             });
 
+            
+
             return services;
         }
     }
