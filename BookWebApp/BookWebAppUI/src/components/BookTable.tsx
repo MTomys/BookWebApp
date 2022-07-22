@@ -2,9 +2,20 @@ import { BookStateButtons } from './BookStateButtons';
 import { mockBooks } from '../mock-data/index';
 import React, { useState, useEffect } from 'react';
 import { Book } from '../interfaces/index';
+import axios from 'axios';
+import { BOOKS_API } from '../api/routes';
 
 export const BookTable = () => {
   const [selectedItem, setSelectedItem] = useState<Book | null>(null);
+  const [bookData, setBookData] = useState<Book[]>();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(BOOKS_API);
+      setBookData(result.data);
+    };
+    fetchData();
+  }, []);
 
   const handleTableRowClick = (
     e: React.MouseEvent<HTMLTableRowElement, MouseEvent>
@@ -21,7 +32,7 @@ export const BookTable = () => {
 
   return (
     <>
-      <table className="table-fixed w-1/2">
+      <table className="table-fixed w-3/5">
         <thead>
           <th>Book Name</th>
           <th>Book genre</th>
@@ -30,7 +41,7 @@ export const BookTable = () => {
           <th>Isbn Number</th>
         </thead>
         <tbody>
-          {mockBooks.map((book) => (
+          {bookData?.map((book) => (
             <tr
               data-item={book}
               key={book.id}
@@ -40,11 +51,13 @@ export const BookTable = () => {
               data-value={book.id}
               onClick={(e) => handleTableRowClick(e)}
             >
-              <td data-title="Name">{book.name}</td>
-              <td data-title="AuthorName">{book.authorName}</td>
+              <td data-title="Name">{book.bookName}</td>
+              <td data-title="Genre">{book.bookGenre}</td>
+              <td data-title="PageCount">{book.pageCount}</td>
+              <td data-title="AuthorName">{book.bookAuthorName}</td>
               <td data-title="IsbnNumber">{book.isbnNumber}</td>
-              <span
-                className={`cursor-default group-hover:visible ${
+              <td
+                className={`flex m-0.5 justfiy-center align-middle space-x-2 cursor-default group-hover:visible ${
                   selectedItem?.id === book.id ? `visible` : `invisible`
                 }`}
               >
@@ -53,7 +66,7 @@ export const BookTable = () => {
                     selectedItem?.id === book.id ? selectedItem : null
                   }
                 />
-              </span>
+              </td>
             </tr>
           ))}
         </tbody>

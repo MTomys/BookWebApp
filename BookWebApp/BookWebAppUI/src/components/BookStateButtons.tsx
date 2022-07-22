@@ -10,9 +10,9 @@ export const BookStateButtons: React.FC<BookStateButtonsProps> = ({
   selectedBook,
 }) => {
   return (
-    <td>
+    <>
       <EditBookButton isParentSelected={selectedBook !== null} />
       <RemoveBookButton isParentSelected={selectedBook !== null} />
-    </td>
+    </>
   );
 };

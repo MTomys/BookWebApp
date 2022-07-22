@@ -8,7 +8,7 @@ function App() {
   return (
     <div>
       <Navbar />
-      <div className="flex w-1/2 mx-auto justify-end">
+      <div className="flex w-3/5 mx-auto justify-end">
         <AddBookButton />
       </div>
       <div className="flex w-auto justify-center mx-auto">

@@ -7,7 +7,7 @@ export const EditBookButton: React.FC<EditBookButtonProps> = ({
 }) => {
   return (
     <button
-      className={`w-auto p-1 mr-2 border-solid border-4  rounded-md text-sm text-white transition 
+      className={`w-auto p-1 border-solid border-4  rounded-md text-sm text-white transition 
       ${
         isParentSelected
           ? `opacity-100 cursor-pointer border-orange-500 bg-orange-500 hover:scale-105`
