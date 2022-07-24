@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css';
 import { BookTable } from './components/BookTable';
-import { AddBookButton } from './components/AddBookButton';
+import { AddBookPanel } from './components/AddBookPanel';
 import { Navbar } from './components/Navbar';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <div>
       <Navbar />
       <div className="flex w-3/5 mx-auto justify-end">
-        <AddBookButton />
+        <AddBookPanel />
       </div>
       <div className="flex w-auto mx-auto justify-center">
         <BookTable />
