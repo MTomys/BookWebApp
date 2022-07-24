@@ -11,7 +11,7 @@ function App() {
       <div className="flex w-3/5 mx-auto justify-end">
         <AddBookButton />
       </div>
-      <div className="flex w-auto justify-center mx-auto">
+      <div className="flex w-auto mx-auto justify-center">
         <BookTable />
       </div>
     </div>

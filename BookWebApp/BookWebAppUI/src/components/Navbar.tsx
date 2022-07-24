@@ -9,7 +9,7 @@ export const Navbar = () => {
         <h1 className="text-5xl mt-5">Book web app</h1>
       </div>
       <div className="flex h-2/7">
-        <div className="h-15/100 w-15/100">
+        <div className="h-15/100 w-15/100 ">
           <img
             src={
               bookActive
