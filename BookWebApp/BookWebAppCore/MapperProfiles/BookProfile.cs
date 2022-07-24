@@ -11,7 +11,8 @@ namespace BookWebAppCore.MapperProfiles
             CreateMap<Book, BookDto>()
                 .ForMember
                 (dest => dest.BookAuthorName, opt => opt.MapFrom(
-                        source => $"{source.BookAuthor.FirstName} {source.BookAuthor.LastName}" ));
+                        source => $"{source.BookAuthor.FirstName} {source.BookAuthor.LastName}" ))
+                .ReverseMap();
         }
 
     }

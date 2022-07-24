@@ -8,5 +8,6 @@ namespace BookWebAppCore.Interfaces
         Book GetBookById(int id);
         Book GetBookByIsbnNumber(string isbnNumber);
         ICollection<Book> GetBooksByGenre(string bookGenre);
+        bool CreateBook(Book book);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BookWebAppCore.Interfaces;
+using BookWebAppCore.Models;
 
 namespace BookWebAppCore.Services
 {
@@ -11,6 +12,9 @@ namespace BookWebAppCore.Services
             _bookAuthorRepository = bookAuthorRepository;
         }
 
-
+        public BookAuthor GetBookAuthorByFullName(string fullName)
+        {
+            return _bookAuthorRepository.GetBookAuthorByFullName(fullName);
+        }
     }
 }

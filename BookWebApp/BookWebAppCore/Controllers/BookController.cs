@@ -23,5 +23,21 @@ namespace BookWebAppCore.Controllers
             return _bookService.GetAllBooks();
         }
 
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [HttpPost]
+        public IActionResult CreateBook([FromBody] BookDto bookCreate)
+        {
+            try
+            {
+                _bookService.CreateBook(bookCreate);
+            }
+            catch (InvalidOperationException e)
+            {
+                return BadRequest(e.Message);
+            }
+            return Ok("Book has been succesfully created");
+        }
+
     }
 }

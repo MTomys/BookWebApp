@@ -13,7 +13,6 @@ namespace BookWebAppCore.Repositories
         {
             _dataContext = dataContext;
         }
-
         public ICollection<Book> GetAllBooks()
         {
             return _dataContext
@@ -42,6 +41,18 @@ namespace BookWebAppCore.Repositories
                 .Books
                 .Where(book => book.BookGenre.Equals(bookGenre))
                 .ToList();
+        }
+        public bool CreateBook(Book book)
+        {
+            _dataContext.Add(book);
+            _dataContext.SaveChanges();
+            return Save();
+        }
+
+        public bool Save()
+        {
+            var saved = _dataContext.SaveChanges();
+            return saved > 0;
         }
     }
 }
