@@ -50,13 +50,14 @@ export const BookTable = () => {
       <div className="flex justify-center">
         {isDataLoading && (
           <p className="text-xl text-blue-500 my-5">
-            Data is currently loading...
+            Book data is currently loading...
           </p>
         )}
         {requestErrors && (
           <p className="text-xl text-red-500 my-5">
             {' '}
-            An error occured: "{requestErrors}", please try again later.
+            An error occured while loading the book data: "{requestErrors}",
+            please try again later.
           </p>
         )}
       </div>

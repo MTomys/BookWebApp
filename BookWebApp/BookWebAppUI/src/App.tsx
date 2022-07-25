@@ -3,15 +3,12 @@ import './index.css';
 import { BookTable } from './components/BookTable';
 import { AddBookPanel } from './components/AddBookPanel';
 import { Navbar } from './components/Navbar';
+import { Header } from './components/Header';
 
 function App() {
   return (
     <>
-      <header>
-        <h1 className="text-center text-5xl mt-5">
-          Welcome to my BookWebApp application!
-        </h1>
-      </header>
+      <Header />
       <nav>
         <Navbar />
       </nav>
