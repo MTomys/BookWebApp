@@ -5,8 +5,8 @@ namespace BookWebAppCore.Interfaces
 {
     public interface IBookService
     {
-        public ICollection<BookDto> GetAllBooks();
+        ServiceResult<ICollection<BookDto>> GetAllBooks();
 
-        public void CreateBook(BookDto bookCreate);
+        ServiceResult<BookDto> CreateBook(BookDto bookCreate);
     }
 }

@@ -4,7 +4,7 @@ namespace BookWebAppCore.Interfaces
 {
     public interface IBookAuthorService
     {
-        BookAuthor GetBookAuthorByFullName(string fullName);
+        ServiceResult<BookAuthor> GetBookAuthorByFullName(string fullName);
 
     }
 }

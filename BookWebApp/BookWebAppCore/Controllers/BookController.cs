@@ -18,9 +18,13 @@ namespace BookWebAppCore.Controllers
         }
 
         [HttpGet]
-        public ICollection<BookDto> GetBooks()
+        [ProducesResponseType(200, Type= typeof(ICollection<BookDto>))]
+        public IActionResult GetBooks()
         {
-            return _bookService.GetAllBooks();
+            var result = _bookService.GetAllBooks();
+            return result.IsOperationSuccessful ?
+                Ok(result.Data) :
+                BadRequest(result.OperationMessage);
         }
 
         [ProducesResponseType(204)]
@@ -28,15 +32,10 @@ namespace BookWebAppCore.Controllers
         [HttpPost]
         public IActionResult CreateBook([FromBody] BookDto bookCreate)
         {
-            try
-            {
-                _bookService.CreateBook(bookCreate);
-            }
-            catch (InvalidOperationException e)
-            {
-                return BadRequest(e.Message);
-            }
-            return Ok("Book has been succesfully created");
+            var result = _bookService.CreateBook(bookCreate);
+            return result.IsOperationSuccessful ?
+                Ok() :
+                BadRequest(result.OperationMessage);
         }
 
     }

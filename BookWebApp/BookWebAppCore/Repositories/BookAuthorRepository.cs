@@ -22,9 +22,9 @@ namespace BookWebAppCore.Repositories
 
         public BookAuthor GetBookAuthorByFullName(string fullName)
         {
-            return _dataContext
-                .BookAuthors
-                .FirstOrDefault(author => $"{author.FirstName} {author.LastName}".Equals(fullName, StringComparison.Ordinal));
+            var bookAuthors = _dataContext.BookAuthors.Where(author => fullName.Contains(author.LastName));
+            var filteredAuthors = bookAuthors.ToList();
+            return filteredAuthors.FirstOrDefault(author => $"{author.FirstName} {author.LastName}".Equals(fullName));
         }
 
         public BookAuthor GetBookAuthorById(int id)

@@ -12,9 +12,23 @@ namespace BookWebAppCore.Services
             _bookAuthorRepository = bookAuthorRepository;
         }
 
-        public BookAuthor GetBookAuthorByFullName(string fullName)
+        public ServiceResult<BookAuthor> GetBookAuthorByFullName(string fullName)
         {
-            return _bookAuthorRepository.GetBookAuthorByFullName(fullName);
+            var bookAuthor = _bookAuthorRepository.GetBookAuthorByFullName(fullName);
+            return bookAuthor != null ?
+                new ServiceResult<BookAuthor>
+                {
+                    Data = bookAuthor,
+                    IsOperationSuccessful = true,
+                    OperationMessage = $"Succesfully found author by full name"
+                }
+                :
+                new ServiceResult<BookAuthor>
+                {
+                    Data = null,
+                    IsOperationSuccessful = false,
+                    OperationMessage = $"Could not find author by full name",
+                };
         }
     }
 }
