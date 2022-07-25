@@ -5,11 +5,8 @@ export const Navbar = () => {
 
   return (
     <nav className="container mx-auto">
-      <div className="flex justify-center">
-        <h1 className="text-5xl mt-5">Book web app</h1>
-      </div>
-      <div className="flex h-2/7">
-        <div className="h-15/100 w-15/100 ">
+      <div className="flex">
+        <div className="ml-5">
           <img
             src={
               bookActive
@@ -18,10 +15,8 @@ export const Navbar = () => {
             }
             alt=""
             className={`
-              object-fill mx-auto hover:cursor-pointer ${
-                bookActive
-                  ? 'object-fit scale-90 hover:scale-95'
-                  : 'hover:scale-110'
+              object-fill hover:cursor-pointer ${
+                bookActive ? 'scale-90 hover:scale-95' : 'hover:scale-110'
               }
                 `}
             onClick={() => {

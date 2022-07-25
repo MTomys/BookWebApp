@@ -3,14 +3,16 @@ import { AddBookForm } from './AddBookForm';
 import { useState } from 'react';
 
 export const AddBookPanel = () => {
-  const [addBookPressed, setAddBookPressed] = useState(false);
-
+  const [showForm, setShowForm] = useState(false);
   return (
     <div>
-      <div onClick={() => setAddBookPressed(!addBookPressed)}>
+      <div onClick={() => setShowForm(!showForm)}>
         <AddBookButton />
       </div>
-      <AddBookForm />
+      <AddBookForm
+        isVisible={showForm}
+        toggleVisibility={() => setShowForm(false)}
+      />
     </div>
   );
 };
