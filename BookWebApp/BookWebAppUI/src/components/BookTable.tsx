@@ -11,24 +11,23 @@ export const BookTable = () => {
   const [requestErrors, setRequestErrors] = useState('');
   const [isDataLoading, setIsDataLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      await axios
-        .get(BOOKS_API)
-        .then((result) => {
-          const formattedResult = result.data.map(
-            (book: Book, index: number) => {
-              return { ...book, id: index + 1 };
-            }
-          );
-          setBookData(formattedResult);
-          setIsDataLoading(false);
-        })
-        .catch((error) => {
-          setIsDataLoading(false);
-          setRequestErrors(error.message);
+  const fetchData = async () => {
+    await axios
+      .get(BOOKS_API)
+      .then((result) => {
+        const formattedResult = result.data.map((book: Book, index: number) => {
+          return { ...book, id: index + 1 };
         });
-    };
+        setBookData(formattedResult);
+        setIsDataLoading(false);
+      })
+      .catch((error) => {
+        setIsDataLoading(false);
+        setRequestErrors(error.message);
+      });
+  };
+
+  useEffect(() => {
     fetchData();
   }, []);
 

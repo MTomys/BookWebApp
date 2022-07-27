@@ -5,14 +5,14 @@ import { useState } from 'react';
 export const AddBookPanel = () => {
   const [showForm, setShowForm] = useState(false);
   return (
-    <div>
-      <div onClick={() => setShowForm(!showForm)}>
+    <>
+      <div onClick={() => setShowForm(true)}>
         <AddBookButton />
       </div>
       <AddBookForm
         isVisible={showForm}
         toggleVisibility={() => setShowForm(false)}
       />
-    </div>
+    </>
   );
 };
