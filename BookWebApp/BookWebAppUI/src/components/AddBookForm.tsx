@@ -10,7 +10,18 @@ export const AddBookForm: React.FC<AddBookFormProps> = ({
   isVisible,
   toggleVisibility,
 }) => {
-  const [bookFormInput, setBookFormInput] = useState<Book>();
+  const [bookFormInput, setBookFormInput] = useState<Book>({
+    id: 0,
+    bookName: '',
+    bookAuthorName: '',
+    bookGenre: '',
+    isbnNumber: '',
+    pageCount: 0,
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setBookFormInput((value) => ({ ...value, [e.target.id]: e.target.value }));
+  };
 
   const handleFormSubmit = () => {};
 
@@ -43,6 +54,7 @@ export const AddBookForm: React.FC<AddBookFormProps> = ({
                 id="bookName"
                 placeholder="Book name"
                 className="w-full border rounded-md border-slate-500 text-sm ml-1 pl-1"
+                onChange={handleInputChange}
               ></input>
               <label
                 htmlFor="bookName"
@@ -55,6 +67,7 @@ export const AddBookForm: React.FC<AddBookFormProps> = ({
                 id="bookGenre"
                 placeholder="Book genre"
                 className="w-full border rounded-md border-slate-500 text-sm ml-1 pl-1"
+                onChange={handleInputChange}
               ></input>
               <label
                 htmlFor="bookGenre"
@@ -67,6 +80,7 @@ export const AddBookForm: React.FC<AddBookFormProps> = ({
                 id="pageCount"
                 placeholder="Page count"
                 className="w-full border rounded-md border-slate-500 text-sm ml-1 pl-1"
+                onChange={handleInputChange}
               ></input>
               <label
                 htmlFor="pageCount"
@@ -79,6 +93,7 @@ export const AddBookForm: React.FC<AddBookFormProps> = ({
                 id="bookAuthorName"
                 placeholder="Book author name"
                 className="w-full border rounded-md border-slate-500 text-sm ml-1 pl-1"
+                onChange={handleInputChange}
               ></input>
               <label
                 htmlFor="bookAuthorName"
@@ -91,6 +106,7 @@ export const AddBookForm: React.FC<AddBookFormProps> = ({
                 id="isbnNumber"
                 placeholder="Isbn Number"
                 className="w-full border rounded-md border-slate-500 text-sm ml-1 pl-1"
+                onChange={handleInputChange}
               ></input>
             </form>
           </div>
